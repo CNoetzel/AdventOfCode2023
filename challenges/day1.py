@@ -1,6 +1,6 @@
-from typing import List
 import re
-from challenges.utils import Task
+from typing import List
+from functools import reduce
 
 def getCalibrationValue(input: str) -> int:
     numbers = re.sub(r'\D','', input)
@@ -19,21 +19,15 @@ def getCalibrationValueAdvanced(input: str) -> int:
     return getCalibrationValue(sanitized)
 
 
-def sumCalibrationValues(data: List[str], type: Task):
-    calibrationValue = 0
-    for input in data:
-        if(type == Task.TASK_1):
-            calibrationValue += getCalibrationValue(input)
-        else:
-            calibrationValue += getCalibrationValueAdvanced(input)
-    return calibrationValue
+def sumCalibrationValues(data: List[str], func):
+    return reduce((lambda x,y: x+y),[func(input) for input in data])
 
 def main():
     f = open('challenges/day1_input.txt', 'r')
     lines = f.readlines()
 
-    print(f'Task 1: Sum of calibration values is {sumCalibrationValues(lines, Task.TASK_1)}')
-    print(f'Task 2: Sum of calibration values is {sumCalibrationValues(lines, Task.TASK_2)}')
-
-if __name__ == "__main__":
+    print(f'Task 1: Sum of calibration values is {sumCalibrationValues(lines, getCalibrationValue)}')
+    print(f'Task 2: Sum of calibration values is {sumCalibrationValues(lines, getCalibrationValueAdvanced)}')
+    
+if __name__ == '__main__':
     main()
