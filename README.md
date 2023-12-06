@@ -10,3 +10,7 @@ Afterwards you should be able to execute single days via `python3 challenges/day
 ## Testing
 
 To execute all tests run `pytest` or `pytest tests/test_dayX.py` for a single day.
+
+## Notes
+
+- Day 5 Task 2 is brute forcing the solution so execution time is loooooong
