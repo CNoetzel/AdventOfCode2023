@@ -1,6 +1,5 @@
 import re
 from typing import List
-from functools import reduce
 
 
 def intersection(lst1: List[int], lst2: List[int]) -> List[int]:

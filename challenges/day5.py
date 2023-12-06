@@ -1,6 +1,5 @@
 import re
 from typing import List
-from functools import reduce
 
 
 def get_seeds(seed_data: str) -> List[int]:
