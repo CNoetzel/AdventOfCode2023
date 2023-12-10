@@ -72,7 +72,6 @@ def main():
     print(
         f"Task 1: Number of steps to the farthest position is {steps_to_farthest_position(lines)}"
     )
-    # print(f"Task 2: The sum of prev values is {sum_sequence_values(lines, False)}")
 
 
 if __name__ == "__main__":
